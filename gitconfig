@@ -1,0 +1,12 @@
+[user]
+	name = Kyle McKee
+	email = mckee.kyle@gmail.com
+[color]
+	ui = true
+[core]
+  excludesfile = /Users/kylemckee/.gitignore_global
+	editor = /usr/bin/vim
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+
