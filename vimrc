@@ -52,18 +52,12 @@ let mapleader = ","
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-
-" This stuff works with vim-ruby-conque to give me pretty color output.  There
-" are cucumber hooks in here as well that I might map later.
-map <Leader>r :w<CR>:call RunRubyCurrentFileConque()<CR>
-map <Leader>s :w<CR>:call RunRspecCurrentFileConque()<CR>
-map <Leader>S :w<CR>:call RunSpecAllFilesConque()<CR>
-map <Leader>l :w<CR>:call RunRspecCurrentLineConque()<CR>
-map <Leader>R :w<CR>:call RunRakeConque()<CR>
-map <Leader>b :call RunBashConque()<CR>
-let g:ruby_conque_rspec_command='rspec'
-let g:ConqueTerm_InsertOnEnter=0 "Supposed to put me in Normal mode, but it doesn't work?
-let g:ConqueTerm_CWInsert = 0 "Able to leave buffer using Command-W
+" Rspec.vim mappings
+"map <Leader>t :call RunCurrentSpecFile()<CR> " don't need this, and leader t is already bound to fuzzy file match.
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>c :w\|!rake features<CR>
 
 " Enable Python Intellisense
 autocmd FileType python set omnifunc=pythoncomplete#Complete
