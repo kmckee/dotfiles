@@ -6,7 +6,6 @@ set ruler  " Ruler on
 set nu  " Line numbers on
 set nowrap  " Line wrapping off
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
-"colorscheme vividchalk  " Uncomment this to set a default theme
  
 " Formatting (some of these are for coding in C and C++)
 set sw=2 " no of spaces for indenting
@@ -39,12 +38,23 @@ colorscheme ir_black
 syntax on
 
 
-if has("autocmd")
-  filetype indent on
-endif
+" Begin Vundle
+set nocompatible 
+filetype off 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
 
-" For Pathogen
-call pathogen#infect()
+Bundle 'wincent/Command-T'
+Bundle 'tpope/vim-rails.git'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-cucumber'
+Bundle 'msanders/snipmate.vim'
+
+filetype plugin indent on
+" End Vundle.
+
 
 let mapleader = ","
 
@@ -58,6 +68,8 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 map <Leader>c :w\|!rake features<CR>
+map <Leader>m :w\|!git add .;git commit -m "Micro commit."<CR>
+map <C-z> :sh<CR>
 
 " Enable Python Intellisense
 autocmd FileType python set omnifunc=pythoncomplete#Complete
